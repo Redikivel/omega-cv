@@ -1,0 +1,22 @@
+{
+  "brandName": "Omega CV",
+  "brandSub": "KI Ability Enhancer",
+  "languageLabel": "Sprache",
+  "headline": "Verwandle chaotische Notizen in CV-taugliche Fähigkeiten",
+  "subhead": "Schreibe links irgendetwas hinein. Omega CV generiert daraus eine polierte Fähigkeitsbeschreibung für deinen Lebenslauf.",
+  "inputTitle": "Eingabe",
+  "outputTitle": "Ausgabe",
+  "chars": "Zeichen",
+  "inputPlaceholder": "Schreibe hier deine chaotischen Notizen hinein...",
+  "clear": "Leeren",
+  "generate": "Generieren",
+  "cancel": "Abbrechen",
+  "copy": "Kopieren",
+  "copied": "Kopiert",
+  "hint": "Tipp: Denk nicht zu viel nach. Sogar Ich spiele den ganzen Tag Videospiele funktioniert.",
+  "outputPlaceholder": "Deine generierte Fähigkeit erscheint hier.",
+  "loadingTitle": "Das Chaos wird poliert",
+  "loadingText": "Deine Eingabe wird in CV-taugliches Material verwandelt...",
+  "errorMessage": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+  "footnote": "KI-generierte Inhalte können Fehler enthalten"
+}

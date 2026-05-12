@@ -1,0 +1,33 @@
+{
+  "brandName": "Omega CV",
+  "brandSub": "AI Ability Enhancer",
+
+  "languageLabel": "Language",
+
+  "headline": "Turn messy notes into resume-ready abilities",
+  "subhead": "Write anything on the left. Omega CV generates a polished ability statement for your CV.",
+
+  "inputTitle": "Input",
+  "outputTitle": "Output",
+
+  "chars": "chars",
+
+  "inputPlaceholder": "Type your messy notes here…",
+
+  "clear": "Clear",
+  "generate": "Generate",
+  "cancel": "Cancel",
+  "copy": "Copy",
+  "copied": "Copied",
+
+  "hint": "Tip: Do not overthink. Even I play videogames all day works.",
+
+  "outputPlaceholder": "Your generated ability will appear here.",
+
+  "loadingTitle": "Polishing the chaos",
+  "loadingText": "Turning your input into resume-ready material...",
+
+  "errorMessage": "Something went wrong. Please try again.",
+
+  "footnote": "AI-generated content may contain errors"
+}

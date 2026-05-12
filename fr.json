@@ -1,0 +1,22 @@
+{
+  "brandName": "Omega CV",
+  "brandSub": "AI Ability Enhancer",
+  "languageLabel": "Langue",
+  "headline": "Transforme des notes brouillonnes en compétences prêtes pour ton CV",
+  "subhead": "Écris n’importe quoi à gauche. Omega CV génère une formulation professionnelle de compétence pour ton CV.",
+  "inputTitle": "Entrée",
+  "outputTitle": "Sortie",
+  "chars": "caractères",
+  "inputPlaceholder": "Écris tes notes brouillonnes ici...",
+  "clear": "Effacer",
+  "generate": "Générer",
+  "cancel": "Annuler",
+  "copy": "Copier",
+  "copied": "Copié",
+  "hint": "Astuce : ne réfléchis pas trop. Même Je joue aux jeux vidéo toute la journée fonctionne.",
+  "outputPlaceholder": "Ta compétence générée apparaîtra ici.",
+  "loadingTitle": "Polissage du chaos",
+  "loadingText": "Transformation de ton texte en contenu prêt pour le CV...",
+  "errorMessage": "Une erreur est survenue. Réessaie s’il te plaît.",
+  "footnote": "Le contenu généré par IA peut contenir des erreurs"
+}

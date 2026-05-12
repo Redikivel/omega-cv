@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080c">
+  <title>Omega CV</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orbs">
+      <span class="orb o1"></span>
+      <span class="orb o2"></span>
+      <span class="orb o3"></span>
+    </div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <header class="topbar-wrap">
+    <div class="topbar">
+
+      <div class="brand">
+        <div class="logo-wrap">
+          <img
+            src="images/Omega_logo.png"
+            alt="Omega CV Logo"
+            class="logo-img"
+          >
+        </div>
+
+        <div class="brand-text">
+          <div class="brand-name" data-i18n="brandName">Omega CV</div>
+          <div class="brand-sub" data-i18n="brandSub">AI Ability Enhancer</div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <label class="sr-only" for="langSelect" data-i18n="languageLabel">Language</label>
+        <select id="langSelect" class="select">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="zh">中文</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <h1 class="headline" data-i18n="headline">
+        Turn messy notes into resume-ready abilities
+      </h1>
+      <p class="subhead" data-i18n="subhead">
+        Write anything on the left. Omega CV generates a polished ability statement for your CV.
+      </p>
+    </section>
+
+    <div class="panel-wrap">
+
+      <section class="panel-grid">
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-title" data-i18n="inputTitle">Input</div>
+            <div class="meta">
+              <span id="inputCounter" class="counter">0</span>
+              <span class="counter-label" data-i18n="chars">chars</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <textarea
+              id="inputText"
+              class="textarea"
+              rows="10"
+              data-i18n-placeholder="inputPlaceholder"
+              placeholder="Type your messy notes here…"
+            ></textarea>
+
+            <div class="btn-row">
+              <button id="clearBtn" class="btn secondary" type="button" data-i18n="clear">Clear</button>
+              <button id="generateBtn" class="btn primary" type="button" data-i18n="generate">Generate</button>
+            </div>
+
+            <div class="hint" data-i18n="hint">
+             Tip: Do not overthink. Even I play videogames all day works.
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <div class="card-title" data-i18n="outputTitle">Output</div>
+            <div class="meta">
+              <button id="copyBtn" class="btn tiny" type="button" data-i18n="copy">Copy</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div id="outputBox" class="output">
+              <div class="output-placeholder" data-i18n="outputPlaceholder">
+                Your generated ability will appear here.
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      <span class="foot-note" data-i18n="footnote">
+        AI-generated content may contain errors
+      </span>
+    </footer>
+
+  </main>
+
+  <script src="app.js" defer></script>
+
+</body>
+</html>

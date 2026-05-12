@@ -1,0 +1,22 @@
+{
+  "brandName": "Omega CV",
+  "brandSub": "AI Ability Enhancer",
+  "languageLabel": "语言",
+  "headline": "把杂乱的笔记变成可用于简历的能力描述",
+  "subhead": "在左侧随便写点内容。Omega CV 会为你的简历生成一段更专业的能力描述。",
+  "inputTitle": "输入",
+  "outputTitle": "输出",
+  "chars": "字符",
+  "inputPlaceholder": "在这里输入你的杂乱笔记...",
+  "clear": "清空",
+  "generate": "生成",
+  "cancel": "取消",
+  "copy": "复制",
+  "copied": "已复制",
+  "hint": "提示：不要想太多。就算是我整天打电子游戏也可以。",
+  "outputPlaceholder": "生成的能力描述会显示在这里。",
+  "loadingTitle": "正在打磨混乱内容",
+  "loadingText": "正在把你的输入转换成适合简历的内容...",
+  "errorMessage": "出了点问题。请再试一次。",
+  "footnote": "AI 生成的内容可能包含错误"
+}

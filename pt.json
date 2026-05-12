@@ -1,0 +1,22 @@
+{
+  "brandName": "Omega CV",
+  "brandSub": "AI Ability Enhancer",
+  "languageLabel": "Idioma",
+  "headline": "Transforme notas bagunçadas em habilidades prontas para o currículo",
+  "subhead": "Escreva qualquer coisa à esquerda. O Omega CV gera uma descrição de habilidade bem formulada para o seu currículo.",
+  "inputTitle": "Entrada",
+  "outputTitle": "Saída",
+  "chars": "caracteres",
+  "inputPlaceholder": "Digite suas notas bagunçadas aqui...",
+  "clear": "Limpar",
+  "generate": "Gerar",
+  "cancel": "Cancelar",
+  "copy": "Copiar",
+  "copied": "Copiado",
+  "hint": "Dica: não pense demais. Até Eu jogo videogame o dia todo funciona.",
+  "outputPlaceholder": "Sua habilidade gerada aparecerá aqui.",
+  "loadingTitle": "Polindo o caos",
+  "loadingText": "Transformando sua entrada em material pronto para o currículo...",
+  "errorMessage": "Algo deu errado. Tente novamente.",
+  "footnote": "Conteúdo gerado por IA pode conter erros"
+}

@@ -89,7 +89,7 @@ User notes:
                 ],
                 "generationConfig": {
                     "temperature": 0.5,
-                    "maxOutputTokens": 160
+                    "maxOutputTokens": 500
                 }
             }
 

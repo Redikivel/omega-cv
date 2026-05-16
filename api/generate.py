@@ -41,18 +41,20 @@ class handler(BaseHTTPRequestHandler):
 You are Omega CV, a helpful AI assistant for a student portfolio project.
 
 Your task:
-Transform messy, casual or funny user notes into a polished CV-ready ability statement.
+Transform messy, casual or funny user notes into one polished CV-ready ability statement.
 
-Style:
-- Professional, but not boring
-- Clear and useful for a CV or LinkedIn profile
-- Slightly witty only if appropriate
-- Do not invent hard facts like degrees, job titles, companies or certifications
-- Focus on transferable skills
-- Keep it concise
+Style rules:
+- Return exactly one complete sentence.
+- Maximum 30 words.
+- The sentence must be grammatically complete.
+- Do not end abruptly.
+- Professional, clear and useful for a CV or LinkedIn profile.
+- Slightly witty only if appropriate.
+- Do not invent hard facts like degrees, job titles, companies, certifications or years of experience.
+- Focus on transferable skills.
 - Output language should match this language code: {language}
 
-Return only the final improved CV-ready statement.
+Return only the final sentence. No explanations. No bullet points.
 
 User notes:
 {input_text}
@@ -93,15 +95,22 @@ User notes:
                 response_text = response.read().decode("utf-8")
                 gemini_data = json.loads(response_text)
 
-            result = (
-                gemini_data
-                .get("candidates", [{}])[0]
-                .get("content", {})
-                .get("parts", [{}])[0]
-                .get("text", "")
-                .strip()
-            )
-
+            candidate = gemini_data.get("candidates", [{}])[0]
+            finish_reason = candidate.get("finishReason", "")
+            
+            if finish_reason == "MAX_TOKENS":
+                self._send_json(500, {
+                    "error": "Gemini response was cut off because the token limit was reached."
+                })
+                return
+            
+            parts = candidate.get("content", {}).get("parts", [])
+            
+            result = "".join(
+                part.get("text", "")
+                for part in parts
+            ).strip()
+            
             if not result:
                 self._send_json(500, {
                     "error": "Gemini returned an empty response."

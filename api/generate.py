@@ -7,7 +7,7 @@ import urllib.error
 
 class handler(BaseHTTPRequestHandler):
     def _send_json(self, status_code, payload):
-        response = json.dumps(payload).encode("utf-8")
+        response = json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
         self.send_response(status_code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -18,6 +18,13 @@ class handler(BaseHTTPRequestHandler):
         try:
             content_length = int(self.headers.get("Content-Length", 0))
             raw_body = self.rfile.read(content_length).decode("utf-8")
+
+            if not raw_body:
+                self._send_json(400, {
+                    "error": "Request body is required."
+                })
+                return
+
             body = json.loads(raw_body)
 
             input_text = body.get("inputText", "").strip()
@@ -26,6 +33,12 @@ class handler(BaseHTTPRequestHandler):
             if not input_text:
                 self._send_json(400, {
                     "error": "Input text is required."
+                })
+                return
+
+            if len(input_text) > 2000:
+                self._send_json(400, {
+                    "error": "Input text is too long. Please keep it under 2000 characters."
                 })
                 return
 
@@ -75,8 +88,8 @@ User notes:
                     }
                 ],
                 "generationConfig": {
-                    "temperature": 0.7,
-                    "maxOutputTokens": 220
+                    "temperature": 0.5,
+                    "maxOutputTokens": 160
                 }
             }
 
@@ -95,25 +108,36 @@ User notes:
                 response_text = response.read().decode("utf-8")
                 gemini_data = json.loads(response_text)
 
-            candidate = gemini_data.get("candidates", [{}])[0]
+            candidates = gemini_data.get("candidates", [])
+
+            if not candidates:
+                self._send_json(500, {
+                    "error": "Gemini returned no candidates.",
+                    "details": gemini_data
+                })
+                return
+
+            candidate = candidates[0]
             finish_reason = candidate.get("finishReason", "")
-            
+
             if finish_reason == "MAX_TOKENS":
                 self._send_json(500, {
                     "error": "Gemini response was cut off because the token limit was reached."
                 })
                 return
-            
+
             parts = candidate.get("content", {}).get("parts", [])
-            
+
             result = "".join(
                 part.get("text", "")
                 for part in parts
             ).strip()
-            
+
             if not result:
                 self._send_json(500, {
-                    "error": "Gemini returned an empty response."
+                    "error": "Gemini returned an empty response.",
+                    "finishReason": finish_reason,
+                    "details": gemini_data
                 })
                 return
 
@@ -127,6 +151,11 @@ User notes:
             self._send_json(error.code, {
                 "error": "Gemini API request failed.",
                 "details": error_body
+            })
+
+        except json.JSONDecodeError:
+            self._send_json(400, {
+                "error": "Invalid JSON request body."
             })
 
         except Exception as error:

@@ -108,6 +108,11 @@ User notes:
                 response_text = response.read().decode("utf-8")
                 gemini_data = json.loads(response_text)
 
+            usage = gemini_data.get("usageMetadata", {}) if isinstance(gemini_data, dict) else {}
+            output_tokens = usage.get("candidatesTokenCount")
+            if output_tokens is None:
+                output_tokens = usage.get("outputTokenCount")
+
             candidates = gemini_data.get("candidates", [])
 
             if not candidates:
@@ -122,7 +127,8 @@ User notes:
 
             if finish_reason == "MAX_TOKENS":
                 self._send_json(500, {
-                    "error": "Gemini response was cut off because the token limit was reached."
+                    "error": "Gemini response was cut off because the token limit was reached.",
+                    "outputTokens": output_tokens
                 })
                 return
 
@@ -137,12 +143,14 @@ User notes:
                 self._send_json(500, {
                     "error": "Gemini returned an empty response.",
                     "finishReason": finish_reason,
+                    "outputTokens": output_tokens,
                     "details": gemini_data
                 })
                 return
 
             self._send_json(200, {
-                "result": result
+                "result": result,
+                "outputTokens": output_tokens
             })
 
         except urllib.error.HTTPError as error:

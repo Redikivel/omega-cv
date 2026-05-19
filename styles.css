@@ -29,8 +29,8 @@
 html,
 body {
   height: 100%;
-  ::-moz-selection { color: var(--accent1); }
-	::selection { color: var(--accent1); }
+  ::-moz-selection { background: var(--accent1); }
+	::selection { background: var(--accent1); }
 }
 
 body {

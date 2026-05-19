@@ -29,6 +29,8 @@
 html,
 body {
   height: 100%;
+  ::-moz-selection { color: var(--accent1); }
+	::selection { color: var(--accent1); }
 }
 
 body {
@@ -108,6 +110,8 @@ body {
   background: radial-gradient(circle at 50% 18%, transparent 42%, rgba(0, 0, 0, 0.60) 100%);
   opacity: 0.72;
 }
+
+
 
 /* Topbar */
 .topbar-wrap {

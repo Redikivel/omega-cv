@@ -908,3 +908,148 @@ body.is-loading .output {
     grid-template-columns: 1fr;
   }
 }
+
+.how-section {
+  margin-top: 48px;
+  padding: 0 2px;
+}
+
+/* ── Header ── */
+.how-header {
+  margin-bottom: 28px;
+}
+
+.how-eyebrow {
+  font-size: 11px;
+  font-weight: 820;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: rgba(255, 42, 42, 0.80);
+  margin-bottom: 6px;
+}
+
+.how-title {
+  margin: 0;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 760;
+  letter-spacing: -0.2px;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+/* ── Grid: cards + connectors ── */
+.how-grid {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  align-items: center;
+  gap: 0 8px;
+}
+
+/* ── Connector arrow ── */
+.how-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-connector svg {
+  width: 40px;
+  height: 12px;
+}
+
+/* ── Step card ── */
+.how-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 20px 20px;
+  border-radius: var(--radius2);
+  background: linear-gradient(180deg, var(--card) 0%, var(--card2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+/* Top glow line matching the main cards */
+.how-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 42, 42, 0.28), transparent);
+  opacity: 0.55;
+}
+
+/* Subtle radial highlight */
+.how-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(420px 130px at 15% 0%, rgba(255, 42, 42, 0.06), transparent 65%);
+}
+
+/* ── Step number (large watermark) ── */
+.how-number {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.04);
+  letter-spacing: -1px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Icon ── */
+.how-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(255, 42, 42, 0.10);
+  border: 1px solid rgba(255, 42, 42, 0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 42, 42, 0.85);
+  flex: 0 0 auto;
+}
+
+.how-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ── Text ── */
+.how-card-title {
+  font-size: 15px;
+  font-weight: 760;
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.2;
+}
+
+.how-card-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+
+  .how-connector {
+    display: none;
+  }
+}

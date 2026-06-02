@@ -13,12 +13,13 @@
   "cancel": "取消",
   "copy": "复制",
   "copied": "已复制",
-  "hint": "提示：不要想太多。即使是'我整天打游戏'也能用。",
+  "hint": "提示：不要想太多。即使是「我整天打游戏」也能用。",
   "outputPlaceholder": "生成的技能描述将显示在此处。",
   "loadingTitle": "正在整理思路",
   "loadingText": "将您的输入转化为简历级别的内容...",
   "errorMessage": "出错了，请重试。",
   "footnote": "AI 生成的内容可能包含错误",
+
   "footerTagline": "将混乱转化为职业，一次一项技能。",
   "footerLinks": "链接",
   "footerLegal": "法律信息",
@@ -31,5 +32,14 @@
   "footerCoffeeText": "如果 Omega CV 帮您节省了写简历的时间，一杯咖啡能让项目继续运营。",
   "footerCoffeeBtn": "请我喝杯咖啡 ☕",
   "footerCopyright": "© 2025 Omega CV。保留所有权利。",
-  "footerPartOf": "Omega 项目的一部分。"
+  "footerPartOf": "Omega 项目的一部分。",
+
+  "howEyebrow": "使用方法",
+  "howTitle": "三步打造更好的简历",
+  "howStep1Title": "随意输入",
+  "howStep1Text": "将您的原始经历输入文本框 — 杂乱、随意、搞笑都没关系。",
+  "howStep2Title": "AI 智能润色",
+  "howStep2Text": "Omega CV 在数秒内将您的笔记重写为清晰、专业的技能陈述。",
+  "howStep3Title": "复制即完成",
+  "howStep3Text": "点击复制，直接将内容粘贴到您的简历、领英或作品集中。"
 }

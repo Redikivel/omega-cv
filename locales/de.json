@@ -31,5 +31,13 @@
   "footerCoffeeText": "Wenn Omega CV dir Lebensläufe schreiben erspart hat, hält ein Kaffee das Projekt am Leben.",
   "footerCoffeeBtn": "Kauf mir einen Kaffee ☕",
   "footerCopyright": "© 2025 Omega CV. Alle Rechte vorbehalten.",
-  "footerPartOf": "Teil des Omega-Projekts."
+  "footerPartOf": "Teil des Omega-Projekts.",
+  "howEyebrow": "So funktioniert's",
+  "howTitle": "Drei Schritte zu einem besseren Lebenslauf",
+  "howStep1Title": "Einfach schreiben",
+  "howStep1Text": "Schreib deine rohen Erfahrungen in das Eingabefeld – chaotisch, locker, lustig, egal.",
+  "howStep2Title": "KI poliert es auf",
+  "howStep2Text": "Omega CV verwandelt deine Notizen in Sekunden in eine klare, professionelle Fähigkeitsbeschreibung.",
+  "howStep3Title": "Kopieren und fertig",
+  "howStep3Text": "Klick auf Kopieren und füge den Punkt direkt in deinen Lebenslauf, LinkedIn oder dein Portfolio ein."
 }

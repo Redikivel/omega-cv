@@ -31,5 +31,13 @@
   "footerCoffeeText": "Si Omega CV vous a fait gagner du temps, un café maintient le projet en vie.",
   "footerCoffeeBtn": "Offrez-moi un café ☕",
   "footerCopyright": "© 2025 Omega CV. Tous droits réservés.",
-  "footerPartOf": "Partie du projet Omega."
+  "footerPartOf": "Partie du projet Omega.",
+  "howEyebrow": "Comment ça marche",
+  "howTitle": "Trois étapes pour un meilleur CV",
+  "howStep1Title": "Écrivez n'importe quoi",
+  "howStep1Text": "Déversez votre expérience brute dans la zone de saisie — en désordre, décontractée, drôle, peu importe.",
+  "howStep2Title": "L'IA le peaufine",
+  "howStep2Text": "Omega CV réécrit vos notes en une déclaration de compétence claire et professionnelle en quelques secondes.",
+  "howStep3Title": "Copiez et c'est fait",
+  "howStep3Text": "Appuyez sur copier et collez le point directement dans votre CV, LinkedIn ou portfolio."
 }

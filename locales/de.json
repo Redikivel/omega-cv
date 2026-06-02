@@ -18,5 +18,18 @@
   "loadingTitle": "Das Chaos wird poliert",
   "loadingText": "Deine Eingabe wird in CV-taugliches Material verwandelt...",
   "errorMessage": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-  "footnote": "KI-generierte Inhalte können Fehler enthalten"
+  "footnote": "KI-generierte Inhalte können Fehler enthalten",
+  "footerTagline": "Aus Chaos werden Karrieren – eine Fähigkeit nach der anderen.",
+  "footerLinks": "Links",
+  "footerLegal": "Rechtliches",
+  "footerSupport": "Unterstützung",
+  "footerImprint": "Impressum",
+  "footerPrivacy": "Datenschutzerklärung",
+  "footerTerms": "Nutzungsbedingungen",
+  "footerBuyCoffee": "Kauf mir einen Kaffee",
+  "footerCoffeeTitle": "Dieses Projekt unterstützen",
+  "footerCoffeeText": "Wenn Omega CV dir Lebensläufe schreiben erspart hat, hält ein Kaffee das Projekt am Leben.",
+  "footerCoffeeBtn": "Kauf mir einen Kaffee ☕",
+  "footerCopyright": "© 2025 Omega CV. Alle Rechte vorbehalten.",
+  "footerPartOf": "Teil des Omega-Projekts."
 }

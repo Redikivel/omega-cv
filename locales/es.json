@@ -1,7 +1,8 @@
 {
   "brandName": "Omega CV",
   "brandSub": "AI Ability Enhancer",
-  "headline": "Convierte notas desordenadas en habilidades listas para tu CV",  "languageLabel": "Idioma",
+  "languageLabel": "Idioma",
+  "headline": "Convierte notas desordenadas en habilidades listas para tu CV",
   "subhead": "Escribe cualquier cosa a la izquierda. Omega CV genera una declaración de habilidad pulida para tu CV.",
   "inputTitle": "Entrada",
   "outputTitle": "Salida",
@@ -17,5 +18,18 @@
   "loadingTitle": "Puliendo el caos",
   "loadingText": "Convirtiendo tu entrada en material listo para el CV...",
   "errorMessage": "Algo salió mal. Inténtalo de nuevo.",
-  "footnote": "El contenido generado por IA puede contener errores"
+  "footnote": "El contenido generado por IA puede contener errores",
+  "footerTagline": "Convirtiendo el caos en carreras, una habilidad a la vez.",
+  "footerLinks": "Enlaces",
+  "footerLegal": "Legal",
+  "footerSupport": "Apoyo",
+  "footerImprint": "Aviso legal",
+  "footerPrivacy": "Política de privacidad",
+  "footerTerms": "Términos de uso",
+  "footerBuyCoffee": "Cómprame un café",
+  "footerCoffeeTitle": "Apoya este proyecto",
+  "footerCoffeeText": "Si Omega CV te ahorró tiempo escribiendo tu CV, un café mantiene el proyecto vivo.",
+  "footerCoffeeBtn": "Cómprame un café ☕",
+  "footerCopyright": "© 2025 Omega CV. Todos los derechos reservados.",
+  "footerPartOf": "Parte del proyecto Omega."
 }

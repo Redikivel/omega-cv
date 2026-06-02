@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omega Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ HEADER ═══ -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-omega">Ω</span>
+        <span class="logo-name">Garden</span>
+      </div>
+
+      <div class="header-actions">
+        <div class="lang-switcher">
+          <select id="lang-select" aria-label="Language">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="es">ES</option>
+            <option value="pt">PT</option>
+            <option value="it">IT</option>
+            <option value="nl">NL</option>
+            <option value="pl">PL</option>
+            <option value="ja">JA</option>
+            <option value="zh">ZH</option>
+          </select>
+        </div>
+        <button class="btn-add" id="btn-open-modal" aria-label="Pflanze hinzufügen">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span data-i18n="add">Pflanze hinzufügen</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════ MAIN ══════ -->
+  <main class="main">
+
+    <!-- TODAY SECTION -->
+    <section class="today-section" id="today-section">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="today">Heute · Brauchen Wasser</h2>
+        <span class="today-count" id="today-count">0</span>
+      </div>
+      <div class="today-strip" id="today-strip">
+        <p class="empty-today" data-i18n="noWater">Alle Pflanzen sind versorgt 🌿</p>
+      </div>
+    </section>
+
+    <!-- SEARCH + FILTER -->
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M10 10l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="search-input" class="search-input" placeholder="Pflanzen suchen…" data-i18n-placeholder="searchPlants" />
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all" data-i18n="all">Alle</button>
+        <button class="filter-tab" data-filter="today" data-i18n="needsWater">Brauchen Wasser</button>
+      </div>
+    </div>
+
+    <!-- PLANT GRID -->
+    <div class="plant-grid" id="plant-grid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="empty-state" hidden>
+      <div class="empty-icon">🌱</div>
+      <p class="empty-title" data-i18n="emptyTitle">Noch keine Pflanzen</p>
+      <p class="empty-sub" data-i18n="emptySub">Füge deine erste Pflanze hinzu, um loszulegen.</p>
+      <button class="btn-add btn-add--lg" id="btn-empty-add" data-i18n="add">Pflanze hinzufügen</button>
+    </div>
+
+  </main>
+
+  <!-- ════════════════════════════ ADD PLANT MODAL ═══════ -->
+  <div class="modal-backdrop" id="modal-backdrop" hidden aria-modal="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title" data-i18n="addPlant">Pflanze hinzufügen</h2>
+        <button class="modal-close" id="btn-close-modal" aria-label="Schließen">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Step indicator -->
+      <div class="steps" id="step-indicator">
+        <div class="step active" data-step="1">
+          <span class="step-num">1</span>
+          <span class="step-label" data-i18n="stepSearch">Suchen</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="2">
+          <span class="step-num">2</span>
+          <span class="step-label" data-i18n="stepSelect">Auswählen</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="3">
+          <span class="step-num">3</span>
+          <span class="step-label" data-i18n="stepConfigure">Konfigurieren</span>
+        </div>
+      </div>
+
+      <!-- STEP 1 – SEARCH -->
+      <div class="modal-step" id="step-1">
+        <div class="api-search-wrap">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M10 10l3.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <input type="search" id="api-search-input" class="search-input" placeholder="Pflanze suchen, z.B. Monstera…" data-i18n-placeholder="searchPlantAPI" />
+        </div>
+        <div class="search-results" id="search-results">
+          <p class="search-hint" data-i18n="searchHint">Tippe mindestens 2 Zeichen…</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 – SELECT -->
+      <div class="modal-step hidden" id="step-2">
+        <div class="selected-plant-preview" id="selected-preview">
+          <!-- Filled by JS -->
+        </div>
+        <button class="btn-ghost btn-sm" id="btn-back-search" data-i18n="back">← Zurück zur Suche</button>
+      </div>
+
+      <!-- STEP 3 – CONFIGURE -->
+      <div class="modal-step hidden" id="step-3">
+        <div class="form-group">
+          <label class="form-label" for="input-custom-name" data-i18n="customName">Mein Name für die Pflanze</label>
+          <input type="text" id="input-custom-name" class="form-input" placeholder="z.B. Küchenfenster-Farn" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input-location" data-i18n="location">Standort (optional)</label>
+          <input type="text" id="input-location" class="form-input" placeholder="z.B. Schlafzimmer-Regal" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="potSize">Topfgröße</label>
+          <div class="radio-group" id="pot-size-group">
+            <label class="radio-option">
+              <input type="radio" name="pot-size" value="small" />
+              <span data-i18n="small">Klein</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="pot-size" value="medium" checked />
+              <span data-i18n="medium">Mittel</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="pot-size" value="large" />
+              <span data-i18n="large">Groß</span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" id="btn-back-select" data-i18n="back">← Zurück</button>
+          <button class="btn-add" id="btn-confirm-add" data-i18n="addPlantConfirm">Pflanze hinzufügen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ EDIT MODAL ═══════════ -->
+  <div class="modal-backdrop" id="edit-modal-backdrop" hidden aria-modal="true" role="dialog" aria-labelledby="edit-modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="edit-modal-title" data-i18n="editPlant">Pflanze bearbeiten</h2>
+        <button class="modal-close" id="btn-close-edit" aria-label="Schließen">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-step" id="edit-form">
+        <div class="form-group">
+          <label class="form-label" for="edit-custom-name" data-i18n="customName">Mein Name</label>
+          <input type="text" id="edit-custom-name" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-location" data-i18n="location">Standort</label>
+          <input type="text" id="edit-location" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="potSize">Topfgröße</label>
+          <div class="radio-group" id="edit-pot-size-group">
+            <label class="radio-option"><input type="radio" name="edit-pot-size" value="small" /><span data-i18n="small">Klein</span></label>
+            <label class="radio-option"><input type="radio" name="edit-pot-size" value="medium" /><span data-i18n="medium">Mittel</span></label>
+            <label class="radio-option"><input type="radio" name="edit-pot-size" value="large" /><span data-i18n="large">Groß</span></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-danger-ghost" id="btn-delete-plant" data-i18n="delete">Löschen</button>
+          <button class="btn-add" id="btn-save-edit" data-i18n="save">Speichern</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ TOAST ════════════════ -->
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
